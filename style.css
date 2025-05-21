@@ -43,7 +43,7 @@ header {
 /* On smaller screens (like phones), make logo smaller */
 @media (max-width: 600px) {
   .logo img {
-    width: 70px;
+    width: 70px !important;
   }
 }
 
@@ -223,4 +223,3 @@ footer a:hover {
     text-align: center;
   }
 }
-
