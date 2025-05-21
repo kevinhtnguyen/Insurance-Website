@@ -81,18 +81,26 @@
     <a href="#contact">Contact</a>
   </footer>
 
-  <script>
-    // Simple form validation
-    function validateForm() {
-      const name = document.getElementById('name').value;
-      const nameRegex = /^[A-Za-z\s]+$/;
-      if (!nameRegex.test(name)) {
-        alert('Name must contain letters and spaces only.');
-        return false;
-      }
-      return true;
+<script>
+  function validateForm() {
+    const name = document.getElementById('name').value;
+    const nameRegex = /^[A-Za-z\s]+$/;
+
+    if (!nameRegex.test(name)) {
+      alert('Name must contain letters and spaces only. No symbols or emojis.');
+      return false;
     }
-  </script>
+
+    // Extra client-side sanitation
+    const emojiRegex = /[\u{1F600}-\u{1F64F}]/u; // Emoji range
+    if (emojiRegex.test(name)) {
+      alert('Please remove emojis from your name.');
+      return false;
+    }
+
+    return true;
+  }
+</script>
 
 </body>
 </html>
