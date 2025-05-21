@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Minimal CSS to keep it clean */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    input, textarea, button {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Contact Us</h2>
+<form 
+  action="https://formsubmit.co/kimd0113@yahoo.com" 
+  method="POST" 
+  onsubmit="return validateForm()"
+>
+
+  <!-- Hidden options -->
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://kevinhtnguyen.github.io/Insurance-Website/thank-you.html">
+
+  <!-- Name field (letters, numbers only) -->
+  <input 
+    type="text" 
+    name="name" 
+    placeholder="Your Full Name" 
+    pattern="[A-Za-z0-9 ]+" 
+    title="Only letters and numbers allowed" 
+    required
+  >
+
+  <!-- Email field (HTML5 built-in validation) -->
+  <input 
+    type="email" 
+    name="email" 
+    placeholder="Your Email Address" 
+    required
+  >
+
+  <!-- Message field (blocks symbols in JS below) -->
+  <textarea 
+    name="message" 
+    id="message" 
+    placeholder="How can we help you?" 
+    required
+  ></textarea>
+
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+function validateForm() {
+  const message = document.getElementById('message').value;
+  const symbolRegex = /[^a-zA-Z0-9 .,!?'\n\r]/;
+
+  if (symbolRegex.test(message)) {
+    alert('Please do not use special symbols in your message.');
+    return false;
+  }
+
+  return true;
+}
+</script>
+
+</body>
+</html>
