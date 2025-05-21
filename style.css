@@ -28,16 +28,14 @@ body {
 .logo-name-container {
   display: flex;
   align-items: center;
-  border: 1px solid red; /* DEBUG: Shows container boundary */
 }
 
 /* Logo image */
 .logo {
-  width: 100px !important; /* Force width */
-  max-width: 100%;         /* Never exceed container width */
-  height: auto !important;
-  border: 1px solid blue;  /* DEBUG: Shows image boundary */
-  /* object-fit not needed here, so removed */
+  width: 100%;
+  max-width: 100px; /* Set a maximum width */
+  height: auto;
+  object-fit: contain;
 }
 
 /* Business name text */
@@ -186,7 +184,6 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
-}
 
 /* Responsive styles for smaller screens */
 @media (max-width: 600px) {
@@ -196,7 +193,7 @@ footer a:hover {
   }
 
   .logo {
-    width: 70px !important; /* Smaller on small screens */
+    width: 70px;
   }
 
   .business-name {
